@@ -1,0 +1,64 @@
+import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+# Load dataset
+df = pd.read_csv("data.csv")
+
+# Add total and average marks
+df["Total"] = df["Math"] + df["Physics"] + df["English"]
+df["Average"] = df["Total"] / 3
+
+print(df)
+
+# Set Seaborn style
+sns.set_style("whitegrid")
+
+# -------------------------
+# 1️⃣ Histogram + KDE (Math)
+plt.figure(figsize=(6,4))
+sns.histplot(df["Math"], kde=True, bins=5, color="skyblue")
+plt.title("Math Marks Distribution")
+plt.show()
+
+# -------------------------
+# 2️⃣ Bar Plot (Total Marks)
+plt.figure(figsize=(6,4))
+sns.barplot(x="Name", y="Total", data=df, palette="viridis")
+plt.title("Total Marks of Students")
+plt.show()
+
+# -------------------------
+# 3️⃣ Line Plot (Average Marks)
+plt.figure(figsize=(6,4))
+sns.lineplot(x="Name", y="Average", data=df, marker="o", color="orange")
+plt.title("Average Marks of Students")
+plt.show()
+
+# -------------------------
+# 4️⃣ Scatter Plot (Math vs Physics)
+plt.figure(figsize=(6,4))
+sns.scatterplot(x="Math", y="Physics", data=df, hue="Name", s=100, palette="Set2")
+plt.title("Math vs Physics Marks")
+plt.show()
+
+# -------------------------
+# 5️⃣ Box Plot (Math Marks)
+plt.figure(figsize=(6,4))
+sns.boxplot(y="Math", data=df, color="lightgreen")
+plt.title("Boxplot of Math Marks")
+plt.show()
+
+# -------------------------
+# 6️⃣ Heatmap (Correlation)
+plt.figure(figsize=(6,4))
+corr = df[["Math","Physics","English"]].corr()
+sns.heatmap(corr, annot=True, cmap="coolwarm")
+plt.title("Correlation Between Subjects")
+plt.show()
+
+# -------------------------
+# 7️⃣ Pair Plot (All Subjects)
+sns.pairplot(df[["Math","Physics","English"]], kind="scatter", diag_kind="kde")
+plt.suptitle("Pairplot of Subjects", y=1.02)
+plt.show()
