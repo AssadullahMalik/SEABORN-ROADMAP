@@ -1,0 +1,9 @@
+import seaborn as sns
+import matplotlib.pyplot as plt
+import pandas as pd
+
+df = pd.read_csv("data.csv")
+
+sns.scatterplot(x="Math", y="Physics", data=df, hue="Name", s=100)
+plt.title("Math vs Physics")
+plt.show()
