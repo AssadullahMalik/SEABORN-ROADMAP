@@ -1,0 +1,12 @@
+import seaborn as sns
+import matplotlib.pyplot as plt
+import pandas as pd
+
+df = pd.read_csv("data.csv")
+
+# Themes: darkgrid, whitegrid, dark, white, ticks
+for style in ["darkgrid","whitegrid","dark","white","ticks"]:
+    sns.set_style(style)
+    sns.barplot(x="Name", y="Math", data=df)
+    plt.title(f"Bar Plot with {style} style")
+    plt.show()
