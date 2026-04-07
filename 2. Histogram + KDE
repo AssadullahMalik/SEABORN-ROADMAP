@@ -1,0 +1,11 @@
+import seaborn as sns
+import matplotlib.pyplot as plt
+import pandas as pd
+import numpy as np
+
+df = pd.read_csv("data.csv")  # or the sample df from basics
+
+# Histogram + KDE
+sns.histplot(df["Math"], kde=True, bins=5)
+plt.title("Math Marks Distribution")
+plt.show()
