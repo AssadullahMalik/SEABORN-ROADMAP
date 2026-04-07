@@ -1,0 +1,9 @@
+import seaborn as sns
+import matplotlib.pyplot as plt
+import pandas as pd
+
+df = pd.read_csv("data.csv")
+
+sns.barplot(x="Name", y="Math", data=df)
+plt.title("Math Marks Bar Plot")
+plt.show()
