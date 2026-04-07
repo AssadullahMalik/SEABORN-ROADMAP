@@ -1,2 +1,17 @@
 import seaborn as sns
 import matplotlib.pyplot as plt
+import pandas as pd
+import numpy as np
+
+# Load sample data
+df = pd.DataFrame({
+    "Name": ["Ali", "Ahmed", "Sara", "Zara", "Usman"],
+    "Math": [85, 90, 78, 92, 70],
+    "Physics": [78, 88, 82, 95, 65],
+    "English": [92, 75, 85, 89, 72]
+})
+
+print(df.head())
+
+# Set style
+sns.set_style("darkgrid")
